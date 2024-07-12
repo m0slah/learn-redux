@@ -36,6 +36,7 @@ store.subscribe(() => console.log(store.getState()));
 store.dispatch(increment());
 store.dispatch(decrement());
 store.dispatch(decrement());
+store.dispatch(decrement());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
