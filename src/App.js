@@ -1,18 +1,31 @@
 import { useState } from "react";
 import "./App.css";
 import { useSelector } from "react-redux";
+import { decrement, increment } from "./actions";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const [counter, setCounter] = useState(useSelector((state) => state.counter));
-
-  const increment = () => {
-    setCounter(counter + 1);
-  };
+  const counter = useSelector((state) => state.counter);
+  const isLogged = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
 
   return (
     <>
       <div className="App">counter is: {counter}</div>
-      <button onClick={increment}>increment</button>
+      <button
+        onClick={() => {
+          dispatch(increment());
+        }}
+      >
+        Increment
+      </button>
+      <button
+        onClick={() => {
+          dispatch(decrement());
+        }}
+      >
+        Decrement
+      </button>
     </>
   );
 }
